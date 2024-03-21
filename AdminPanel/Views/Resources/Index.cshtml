@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ResourceIndexModel>
+
+
+<div style="margin-top: 45px; margin-left: 30px;">
+    <h2>Resources List</h2>
+</div>
+
+<div id="ModalHere"></div>
+
+
+<div class="d-flex justify-content-between" style="float:right">
+    <div>
+        <button type="button" class="btn btn-success pull-right" style="padding-right:15px; margin-bottom:15px;" data-url="@Url.Action("AddResource")" data-toggle="ajax-modal" data-target="#addModal">
+            <i class="fa fa-plus"></i>
+            Add New Resource
+        </button>
+    </div>
+</div>
+
+<div class="col-lg-12" style="padding:unset;">
+    <table class="table table-bordered align-middle table-hover table-rounded table-striped table-row-dashed gy-2 gs-5">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">Resource Title</th>
+                <th class="text-center" scope="col">Description</th>
+                <th class="text-center" scope="col">Link</th>
+                <th class="text-center" scope="col">Uplaod Date</th>
+                <th class="text-center" scope="col">Uploaded By</th>
+                <th class="text-center" scope="col">GroupName</th>
+                <th class="text-center" scope="col">Update</th>
+                <th class="text-center" scope="col">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var resource in Model)
+            {
+                <tr>
+                    <td class="text-center">@resource.Title</td>
+                    <td class="text-center">@resource.Description</td>
+                    <td class="text-center">@resource.Link</td>
+                    <td class="text-center">@resource.UploadTime</td>
+                    <td class="text-center">@resource.UploadedBy</td>
+                    <td class="text-center">@resource.GroupName</td>
+
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#editModal" data-url="@Url.Action($"UpdateResource", new { id = resource.ObjectId })">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-danger" data-toggle="ajax-modal" data-target="#deleteModal" data-url="@Url.Action($"DeleteResource", new { id = resource.ObjectId })"><i class="fa fa-trash"></i></button>
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+﻿@model GroupAddModel
+
+<div class="modal" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Group Add</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="AddGroup" asp-controller="Groups" method="post">
+                    <div class="form-group">                  
+
+                        <label asp-for="Title">Group Title</label>
+                        <input asp-for="Title" class="form-control" on required />
+                        <span asp-validation-for="Title" class="text-danger"></span>     
+                        
+                        <label asp-for="Subject">Group Subject</label>
+                        <input asp-for="Subject" class="form-control" on required />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                        
+                        <label asp-for="MemberUsers">Select Members</label>                        
+                        <select class="js-data-example-ajax form-control" id="js-ajax-users" name="MemberUsers[]" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="MemberUsers" class="text-danger"></span>
+
+                        <label asp-for="Resources">Select Resources</label>                        
+                        <select class="js-data-example-ajax form-control" id="js-ajax-resources" name="Resources[]" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="Resources" class="text-danger"></span>
+
+                        <label asp-for="Tasks">Select Tasks</label>                        
+                        <select class="js-data-example-ajax form-control" id="js-ajax-tasks" name="Tasks[]" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="Tasks" class="text-danger"></span>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Add Group">Add Group</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

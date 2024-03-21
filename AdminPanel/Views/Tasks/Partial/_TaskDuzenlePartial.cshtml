@@ -1,0 +1,61 @@
+﻿@model TaskUpdateModel
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Task Update</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-left">
+
+                <form asp-action="UpdateTask" asp-controller="Tasks" method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="ObjectId" />
+
+                        <label asp-for="TaskTitle">Task Title</label>
+                        <input asp-for="TaskTitle" class="form-control" on required />
+                        <span asp-validation-for="TaskTitle" class="text-danger"></span>
+
+                        <label asp-for="TaskDescription">Subject</label>
+                        <input asp-for="TaskDescription" class="form-control" on required />
+                        <span asp-validation-for="TaskDescription" class="text-danger"></span>
+
+                        <label asp-for="IsCompleted">Completion</label>
+                        <input asp-for="IsCompleted" type="checkbox" >
+                        <span asp-validation-for="IsCompleted" class="text-danger"></span>
+
+                        <br />
+
+                        <label asp-for="CreatedAt">Create Date</label>
+                        <input asp-for="CreatedAt" class="form-control" on required />
+                        <span asp-validation-for="CreatedAt" class="text-danger"></span>
+
+                        <label asp-for="CreatedBy">Created By User</label>
+                        <input asp-for="CreatedBy" class="form-control"/>
+                        <span asp-validation-for="CreatedBy" class="text-danger"></span>
+
+                        <label asp-for="DueAt">Deadline</label>
+                        <input asp-for="DueAt" class="form-control" on required />
+                        <span asp-validation-for="DueAt" class="text-danger"></span>
+
+                        <label asp-for="UsersAssigned">Users Assigned</label>
+                        <select asp-for="UsersAssigned" class="js-data-example-ajax form-control" id="js-ajax-users" name="UsersAssigned[]" multiple="multiple" style="width: 100%;">
+                            @foreach(var item in Model.UsersAssigned)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                        <span asp-validation-for="UsersAssigned" class="text-danger"></span>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Update Task">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

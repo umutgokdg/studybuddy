@@ -1,0 +1,43 @@
+﻿@model ResourceAddModel
+
+<div class="modal" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Resource Add</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="AddResource" asp-controller="Tasks" method="post">
+                    <div class="form-group">
+
+                        <label asp-for="Title">Title</label>
+                        <input asp-for="Title" class="form-control" on required />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                        <label asp-for="Description">Description</label>
+                        <input asp-for="Description" class="form-control" on required />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                        <label asp-for="Link">Link</label>
+                        <input asp-for="Link" class="form-control" on required />
+                        <span asp-validation-for="Link" class="text-danger"></span>
+
+                        <label asp-for="Group">Select Group</label>
+                        <select class="js-data-example-ajax" id="js-ajax-group" name="Group" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="Group" class="text-danger"></span>
+
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Add Resource">Add Resource</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

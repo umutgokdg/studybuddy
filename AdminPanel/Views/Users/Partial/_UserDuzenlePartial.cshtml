@@ -1,0 +1,56 @@
+﻿@model UserUpdateModel
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Group Update</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="UpdateUser" asp-controller="Users" method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="ObjectId" />
+
+                        <label asp-for="FirstName">FirstName</label>
+                        <input asp-for="FirstName" class="form-control" on required />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                        <label asp-for="LastName">LastName</label>
+                        <input asp-for="LastName" class="form-control" on required />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" on required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                        <label asp-for="Points">Points</label>
+                        <input asp-for="Points" class="form-control" on required />
+                        <span asp-validation-for="Points" class="text-danger"></span>
+
+                        <label asp-for="Status">Status</label>
+                        <input asp-for="Status" class="form-control" on required />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+
+                        <label asp-for="IndividualTasks">Individual Tasks</label>
+                        <select asp-for="IndividualTasks" class="js-data-example-ajax form-control" id="js-ajax-tasks" name="Tasks[]" multiple="multiple" style="width: 100%;">
+
+                            @foreach (var item in Model.IndividualTasks)
+                        {
+                            <option value="@item" selected="selected">@item</option>
+                        }
+                        </select>
+                        <span asp-validation-for="IndividualTasks" class="text-danger"></span>
+
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Update Group">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

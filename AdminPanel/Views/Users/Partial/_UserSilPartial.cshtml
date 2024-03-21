@@ -1,0 +1,31 @@
+﻿@model UserDeleteModel
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">User Delete</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="UserDeletePost" asp-controller="Users" method="post">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" asp-for="@Model.ObjectId" />
+                        <p> Do you want to delete this user?</p>
+
+                        <label asp-for="Name"><b>Group Title: @Model.Name</b></label> <br />
+                        
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-danger" title="Delete User">Delete User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@model TaskAddModel
+
+<div class="modal" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Task Add</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="AddTask" asp-controller="Tasks" method="post">
+                    <div class="form-group">
+
+                        <label asp-for="Title">Title</label>
+                        <input asp-for="Title" class="form-control" on required />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                        <label asp-for="Description">Subject</label>
+                        <input asp-for="Description" class="form-control" on required />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                        <label asp-for="CreatedBy">CreatedBy</label>
+                        <select class="js-data-example-ajax form-control" id="js-ajax-user" name="Group" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="CreatedBy" class="text-danger"></span>
+
+                        <label asp-for="Group">Select Group (Optional)</label>
+                        <select class="js-data-example-ajax form-control" id="js-ajax-group" name="Group" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="Group" class="text-danger"></span>
+
+                        <label asp-for="Due">Deadline</label>
+                        <input asp-for="Due" class="form-control" on required />
+                        <span asp-validation-for="Due" class="text-danger"></span>
+
+                        <label asp-for="UsersAssigned">UsersAssigned</label>
+                        <select class="js-data-example-ajax form-control" id="js-ajax-users" name="Users[]" multiple="multiple" style="width: 100%;"> </select>
+                        <span asp-validation-for="UsersAssigned" class="text-danger"></span>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Add Task">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

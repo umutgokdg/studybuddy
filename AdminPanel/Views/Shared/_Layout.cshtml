@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Panel</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Admin Panel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- SideBar -->
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <div class="container-fluid text-center">
+                            <a href="/" class="d-flex text-white text-decoration-none justify-content-center">
+                                <span class="fs-5 d-none d-sm-inline">Menu</span>
+                            </a>
+                        </div>
+                        <br />
+                        <div class="container-fluid text-center">
+                            <ul class="nav nav-pills flex-column mb-auto">
+                                <li>
+                                    <a href="~/users" class="nav-link text-white" aria-current="page">
+                                        <i class="fas fa-user" width="16" height="16"></i>
+                                        Users
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/groups" class="nav-link text-white">
+                                        <i class="fas fa-users" width="16" height="16"></i>
+                                        Groups
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/tasks" class="nav-link text-white">
+                                        <i class="fas fa-tasks" width="16" height="16"></i>
+                                        Tasks
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/resources" class="nav-link text-white">
+                                        <i class="fas fa-book" width="16" height="16"></i>
+                                        Resources
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col ">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.full.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+
+            var PlaceHolderElement = $('#ModalHere')
+
+            $('button[data-toggle="ajax-modal"]').click(function (event) {
+                var url = $(this).data('url');
+                var decodedUrl = decodeURIComponent(url)
+                $.get(decodedUrl).done(function (data) {
+                    PlaceHolderElement.html(data);
+                    PlaceHolderElement.find('.modal').modal('show');
+                });
+            });
+
+            PlaceHolderElement.on('click', '[data-save="modal"]', function (event) {
+                event.preventDefault();
+                var form = $(this).parents('.modal').find('form');
+                var actionUrl = form.attr('action');
+                var sendData = form.serialize();
+                $.post(actionUrl, sendData).done(function (data) {
+                    PlaceHolderElement.find('.modal').modal('hide');
+                });
+            });
+
+            PlaceHolderElement.on('click', '[data-dismiss="modal"]', function () {
+               
+                PlaceHolderElement.find('.modal').modal('hide');
+            });
+
+
+
+            function initializeSelect2(selector, url) {
+                $(selector).each(function () {
+                    var dropdownParent = $(document.body);
+                    if ($(selector).parents('.modal.in:first').length !== 0)
+                        dropdownParent = $(selector).parents('.modal.in:first');
+                    $(selector).select2({
+                        dropdownParent: dropdownParent,
+                        // minimumInputLength: 1,
+                        minimumResultsForSearch: Infinity,
+                        ajax: {
+                            url: url,
+                            dataType: 'json',
+                            type: 'GET',
+                            quietMillis: 50,
+                            data: function (params) {
+                                return {
+                                    searchTerm: params.term
+                                };
+                            },
+                            processResults: function (data) {
+                                return {
+                                    results: data.results.map(function (item) {
+                                        return {
+                                            text: item.text,
+                                            id: item.id
+                                        };
+                                    }),
+                                    pagination: {
+                                        more: data.pagination.more
+                                    }
+                                };
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.error('Select2 AJAX error:', textStatus, errorThrown);
+                            },
+
+                        }
+                    });
+                });
+            }
+
+
+            $('body').on('shown.bs.modal', '.modal', function () {
+                initializeSelect2('#js-ajax-users', '/groups/GetNamesJson');
+                initializeSelect2('#js-ajax-resources', '/groups/GetResourcesJson');
+                initializeSelect2('#js-ajax-tasks', '/groups/GetTasksJson');
+                initializeSelect2('#js-ajax-user', '/groups/GetNamesJson');
+                initializeSelect2('#js-ajax-invited-users', '/groups/GetNamesJson');
+                initializeSelect2('#js-ajax-group', '/groups/GetGroupsJson');
+                // Add more Select2 elements as needed
+            });
+
+
+
+
+        });
+    </script>
+
+</body>
+</html>

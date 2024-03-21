@@ -1,0 +1,43 @@
+﻿@model ResourceUpdateModel
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Resource Update</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="UpdateResource" asp-controller="Resources" method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="ObjectId" />
+
+                        <label asp-for="Title">Resource Title</label>
+                        <input asp-for="Title" class="form-control" on required />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                        <label asp-for="Description">Description</label>
+                        <input asp-for="Description" class="form-control" on required />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                        <label asp-for="Link">Resource Link</label>
+                        <input asp-for="Link" class="form-control" on required />
+                        <span asp-validation-for="Link" class="text-danger"></span>
+
+                        <label asp-for="UploadedBy">Uploaded By User</label>
+                        <select asp-for="UploadedBy" class="js-data-example-ajax form-control" id="js-ajax-user" name="UploadedBy" style="width: 100%;">
+                            <option value="@Model.UploadedBy" selected="selected">@Model.UploadedBy</option>
+                        </select>
+                        <span asp-validation-for="UploadedBy" class="text-danger"></span>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Update Resource">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

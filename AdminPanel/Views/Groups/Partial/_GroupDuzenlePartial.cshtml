@@ -1,0 +1,103 @@
+﻿@model GroupUpdateModel
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Group Update</h4>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <form asp-action="UpdateGroup" asp-controller="Groups" method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="ObjectId" />
+
+                        <label asp-for="Title">Group Title</label>
+                        <input asp-for="Title" class="form-control" on required />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+
+                        <label asp-for="Subject">Subject</label>
+                        <input asp-for="Subject" class="form-control" on required />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                                                    
+                        <label asp-for="Resources">Resources</label>
+                        <select asp-for="Resources" class="js-data-example-ajax form-control" id="js-ajax-resources" name="Resources[]" multiple="multiple" style="width: 100%;">
+                        @foreach(var item in Model.Resources){
+                            <option value="@item">@item</option>
+                        }
+                        </select>
+                        <span asp-validation-for="Resources" class="text-danger"></span>
+
+                        <label asp-for="CreatedBy">Created By User</label>
+                        <select asp-for="CreatedBy" class="js-data-example-ajax form-control" id="js-ajax-user" name="CreatedBy" style="width: 100%;">
+                            <option value="@Model.CreatedBy" selected="selected">@Model.CreatedBy</option>
+                        </select>
+                        <span asp-validation-for="CreatedBy" class="text-danger"></span>
+
+                        <label asp-for="MemberUsers">Member Users</label>
+                        <select asp-for="MemberUsers" class="js-data-example-ajax form-control" id="js-ajax-users" name="MemberUsers[]" multiple="multiple" style="width: 100%;">
+                            @foreach (var item in Model.MemberUsers)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                        
+                        <span asp-validation-for="MemberUsers" class="text-danger"></span>
+
+                        <label asp-for="InvitedUsers">Invited Users</label>
+                        <select asp-for="InvitedUsers" class="js-data-example-ajax form-control" id="js-ajax-invited-users" name="InvitedUsers[]" multiple="multiple" style="width: 100%;">
+                            @foreach (var item in Model.InvitedUsers)
+                            {
+                                <option value="@item" selected="selected">@item</option>
+                            }
+                        </select>
+                        
+                        <span asp-validation-for="InvitedUsers" class="text-danger"></span>
+
+                        <label asp-for="Tasks">Tasks</label>
+                        <select asp-for="Tasks" class="js-data-example-ajax form-control" id="js-ajax-tasks" name="Tasks[]" multiple="multiple" style="width: 100%;"> 
+
+                        @foreach (var item in Model.Tasks)
+                        {
+                            <option value="@item" selected="selected">@item</option>
+                        }
+                        </select>
+                        <span asp-validation-for="Tasks" class="text-danger"></span>
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" title="Cancel">Cancel</button>
+                        <button type="submit" class="btn btn-success" title="Update Group">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    @* <script>
+        $(document).ready(function () {
+            // Function to initialize Select2 with pre-selected values
+            function initializeSelect2(elementId, selectedValues) {
+                $(elementId).select2({
+                    placeholder: "Select option(s)",
+                    multiple: true, // Set to true for multiple selection
+                    data: selectedValues.map(function (value) {
+                        return { id: value, text: value };
+                    }),
+                });
+            }
+
+            // Call the initializeSelect2 function for each Select2 dropdown
+            initializeSelect2("#js-ajax-resources", @Html.Raw(Json.Serialize(Model.Resources)));
+            initializeSelect2("#js-ajax-user", @Html.Raw(Json.Serialize(Model.CreatedBy)));
+            initializeSelect2("#js-ajax-users", @Html.Raw(Json.Serialize(Model.MemberUsers)));
+            initializeSelect2("#js-ajax-invited-users", @Html.Raw(Json.Serialize(Model.InvitedUsers)));
+            initializeSelect2("#js-ajax-tasks", @Html.Raw(Json.Serialize(Model.Tasks)));
+
+        });
+    </script> *@
+}
+
