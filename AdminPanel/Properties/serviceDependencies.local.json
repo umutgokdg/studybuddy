@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mongodb1": {
+      "containerPorts": "27017:27017",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "mongodb",
+      "containerImage": "mongo",
+      "type": "mongodb.container",
+      "connectionId": "mongodb+srv://gimmefiv5:jaFvPpQEikBntQP1@cluster0.2m1bohe.mongodb.net:?retryWrites=true&w=majority",
+      "dynamicId": null
+    }
+  }
+}

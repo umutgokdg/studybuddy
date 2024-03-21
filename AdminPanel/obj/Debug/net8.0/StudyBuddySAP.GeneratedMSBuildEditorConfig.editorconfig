@@ -1,0 +1,107 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = StudyBuddySAP
+build_property.RootNamespace = StudyBuddySAP
+build_property.ProjectDir = C:\Users\turkero17\source\repos\blg411e\AdminPanel\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\turkero17\source\repos\blg411e\AdminPanel
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Groups/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Groups/Partial/_GroupDuzenlePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBzXFBhcnRpYWxcX0dyb3VwRHV6ZW5sZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Groups/Partial/_GroupEklePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBzXFBhcnRpYWxcX0dyb3VwRWtsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Groups/Partial/_GroupSilPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBzXFBhcnRpYWxcX0dyb3VwU2lsUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Resources/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3VyY2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Resources/Partial/_ResourceDuzenlePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3VyY2VzXFBhcnRpYWxcX1Jlc291cmNlRHV6ZW5sZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Resources/Partial/_ResourceEklePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3VyY2VzXFBhcnRpYWxcX1Jlc291cmNlRWtsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Resources/Partial/_ResourceSilPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzb3VyY2VzXFBhcnRpYWxcX1Jlc291cmNlU2lsUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Tasks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Tasks/Partial/_TaskDuzenlePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcUGFydGlhbFxfVGFza0R1emVubGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Tasks/Partial/_TaskEklePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcUGFydGlhbFxfVGFza0VrbGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Tasks/Partial/_TaskSilPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcUGFydGlhbFxfVGFza1NpbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Users/Partial/_UserDuzenlePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUGFydGlhbFxfVXNlckR1emVubGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Users/Partial/_UserSilPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUGFydGlhbFxfVXNlclNpbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/turkero17/source/repos/blg411e/AdminPanel/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-45h5u49e9o
